@@ -3,28 +3,338 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kelvin Chaguay - Frontend | Backend Developer</title>
-    <meta name="description" content="Kelvin Chaguay is a Frontend and Backend Developer based in Stratford, Connecticut. Learn more about his skills and projects.">
-    <meta name="keywords" content="Kelvin Chaguay, Frontend Developer, Backend Developer, Stratford, Connecticut">
+    <title>Kelvin Chaguay - Cybersecurity Portfolio</title>
     <meta name="google-site-verification" content="oHysWht1mPibqVmwdmLIcHuzDPAYSHbZ_55kJ-zB5QQ" />
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+        /*  main*/
+        * {
             margin: 0;
-            padding: 20px;
-            text-align: center;
+            padding: 0;
+            box-sizing: border-box;
         }
+
+        :root {
+            --primary: #0a0a0f;
+            --secondary: #1a1a24;
+            --accent: #ffd700;
+            --highlight: #d4af37;
+            --galaxy-blue: #4169e1;
+            --text: #ffffff;
+            --glow: 0 0 10px #d4af37, 0 0 20px #ffd700;
+        }
+
+        body {
+            background-color: var(--primary);
+            color: var(--text);
+            font-family: 'Courier New', monospace;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ASCII Art Styles */
+        .ascii-art {
+            display: block;
+            white-space: pre;
+            font-family: monospace;
+            color: var(--highlight);
+            text-align: center;
+            margin: 2rem 0;
+            text-shadow: 0 0 5px var(--highlight);
+            font-size: 0.7rem;
+        }
+
+        .ascii-divider {
+            color: var(--highlight);
+            opacity: 0.5;
+            margin: 1rem 0;
+            font-size: 0.6rem;
+        }
+
+        /* Background Effect */
+        .matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom,
+                rgba(10, 10, 15, 0.98),
+                rgba(26, 26, 36, 0.98));
+            z-index: -1;
+        }
+
+        /* Main Content Styles */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            padding: 2rem 0;
+            border-bottom: 2px solid var(--highlight);
+            margin-bottom: 3rem;
+            position: relative;
+            background: rgba(26, 26, 36, 0.5);
+            border-radius: 10px;
+        }
+
         h1 {
-            color: #333;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--highlight);
+            text-shadow: 0 0 5px var(--highlight);
+        }
+
+        .title {
+            color: var(--highlight);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Skills Section */
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .skill-card {
+            background: rgba(26, 26, 36, 0.7);
+            padding: 1.5rem;
+            border-radius: 5px;
+            border: 1px solid var(--highlight);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.1);
+        }
+
+        .skill-name {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--highlight);
+        }
+
+        .skill-bar {
+            width: 100%;
+            height: 10px;
+            background: var(--primary);
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .skill-progress {
+            position: absolute;
+            height: 100%;
+            background: linear-gradient(90deg, var(--highlight), var(--galaxy-blue));
+            animation: progress 1.5s ease-out forwards;
+        }
+
+        /* Hobbies Section */
+        .hobbies {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .hobby-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+            border: 1px solid var(--highlight);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.1);
+        }
+
+        .hobby-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            filter: grayscale(20%) brightness(0.8);
+        }
+
+        .hobby-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top,
+                rgba(10, 10, 15, 0.95),
+                transparent);
+            padding: 1rem;
+        }
+
+        /* Animations */
+        @keyframes progress {
+            from { width: 0; }
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            border-top: 2px solid var(--highlight);
+            background: rgba(26, 26, 36, 0.5);
+            border-radius: 10px;
+        }
+
+        .social-link {
+            color: var(--highlight);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--highlight);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            background: rgba(10, 10, 15, 0.5);
+        }
+
+        .social-link:hover {
+            background: var(--highlight);
+            color: var(--primary);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .ascii-art {
+                font-size: 0.5rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .skills, .hobbies {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Kelvin Chaguay</h1>
-    <h2>Frontend | Backend Developer</h2>
-    <p>Welcome to my personal website. I'm a developer based in Stratford, Connecticut, specializing in frontend and backend development.</p>
-    <p>Learn more about my skills, projects, and experience.</p>
-    <p>Connect with me on <a href="https://www.linkedin.com/in/kelvinchaguay">LinkedIn</a></p>
+    <div class="matrix-bg"></div>
+    <div class="container">
+        <header>
+            <pre class="ascii-art">
+      /\                /\
+     /  \              /  \
+    /    \____________/    \
+    \     |  ______  |     /
+     \    | |      | |    /
+      \   | |      | |   /
+       \  | |      | |  /
+        \ | |______| | /
+         \|__________|/
+          |     |    |
+          |     |    |
+          |     |    |
+          |     |    |
+          |_____|____|
+            :-D
+    </pre>
+            <pre class="ascii-divider">
+    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+    </pre>
+            <h1>Kelvin Chaguay</h1>
+            <div class="title"> Software | Tech | Student</div>
+            <p>:-D all of the above.</p>
+            <pre class="ascii-divider">
+    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+    </pre>
+            <pre class="ascii-art">
+     [&gt;]==================[&lt;]
+     ||  SKILLS ||
+     [&gt;]==================[&lt;]s
+    </pre>
+        </header>
+
+        <section class="skills">
+            <div class="skill-card">
+                <h3 class="skill-name">Programming</h3>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 90%"></div>
+                </div>
+            </div>
+            <div class="skill-card">
+                <h3 class="skill-name">Problem Solver</h3>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 85%"></div>
+                </div>
+            </div>
+            <div class="skill-card">
+                <h3 class="skill-name">System Administration</h3>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 80%"></div>
+                </div>
+            </div>
+            <div class="skill-card">
+                <h3 class="skill-name">Multi-tasking</h3>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 75%"></div>
+                </div>
+            </div>
+            <div class="skill-card">
+                <h3 class="skill-name">Seller</h3>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 85%"></div>
+                </div>
+            </div>
+            <div class="skill-card">
+                <h3 class="skill-name">Bilingual</h3>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 95%"></div>
+                </div>
+            </div>
+        </section>
+
+        <pre class="ascii-art">
+    /=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=\
+    |                   INTERESTS                     |
+    \=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=/
+    </pre>
+
+        <section class="hobbies">
+            <div class="hobby-card">
+                <img src="https://cantaroinstitute.org/wp-content/uploads/2024/07/ARTICLE-6-scaled.jpg" alt="Bible">
+                <div class="hobby-overlay">
+                    <h3>Bible Studies</h3>
+                </div>
+            </div>
+            <div class="hobby-card">
+                <img src="https://web.archive.org/web/20060629050524im_/http://www.angelfire.com/tx/Truffle/mircrespecttitle.gif" alt="Art">
+                <div class="hobby-overlay">
+                    <h3>Computer Art</h3>
+                </div>
+            </div>
+            <div class="hobby-card">
+                <img src="https://teachwhatisgood.com/wp-content/uploads/2023/05/pexels-photo-764880.jpeg?w=940" alt="Photography">
+                <div class="hobby-overlay">
+                    <h3>Photography</h3>
+                </div>
+            </div>
+            <div class="hobby-card">
+                <img src="https://cantaroinstitute.org/wp-content/uploads/2020/08/ARTICLE-30.jpg" alt="Spiritual">
+                <div class="hobby-overlay">
+                    <h3>Spiritual Practices</h3>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <pre class="ascii-art">
+    &lt;==|==\___________________/==|==&gt;
+        \  CONNECT WITH ME  /
+         \________________/
+    </pre>
+            <a href="https://www.linkedin.com/in/kelvinchaguay" target="_blank" rel="noopener noreferrer" class="social-link">
+                Connect on LinkedIn
+            </a>
+        </footer>
+    </div>
 </body>
 </html>
